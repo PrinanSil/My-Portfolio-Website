@@ -6,7 +6,6 @@ styleSwitcherToggle.addEventListener("click", () =>   {
 
 /* ============ hide toggle style switcher on scroll========== */
 window.addEventListener("mouseup", () =>{
-    console.log("Scrolling");
     if(document.querySelector(".style-switcher").classList.contains("open")){
         document.querySelector(".style-switcher").classList.remove("open");
     }
