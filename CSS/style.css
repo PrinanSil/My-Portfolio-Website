@@ -461,7 +461,7 @@ h3.my-profession{
     border-bottom: 10px solid var(--skin-color);
     border-right: 10px solid var(--skin-color);
     right: 50px;
-    bottom: 30px;
+    bottom: 5px;
     animation: slideBottom 1s ease forwards;
 }
 
@@ -473,7 +473,7 @@ h3.my-profession{
     border-top: 10px solid var(--skin-color);
     border-left: 10px solid var(--skin-color);
     left: 50px;
-    top: -30px;
+    top: -5px;
     animation: slideTop 1s ease forwards;
 }
 
@@ -1491,11 +1491,7 @@ textarea, input{
 
     .home .container .home-img::before{      
         display: none;
-    }
-
-    .home .home-img img{
-        height: 350px;
-    } 
+    }    
 
     .bio .about-container .personal-info .info-item p span{
         display: block;
@@ -1540,18 +1536,14 @@ textarea, input{
 @media (max-width:995px){
     .section .container{
         padding-left: 20px;        
-    }
+    }   
 }
 
 @media (max-width:900px){
-    .home .home-info{
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-
-    .home .home-img{
-        display: none;
-    }
+    
+    .home .home-img img{
+        height: 450px;
+    } 
 
     .section .container{
         padding-left: 10px;        
@@ -1609,7 +1601,19 @@ textarea, input{
     } 
 }
 
+@media (max-width:810px){
+    .home .home-info{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }   
+
+    .home .home-img{
+        display: none;
+    }
+}
+
 @media (max-width:785px){
+    
     .section .container{
         padding-left: 0px;        
     }
