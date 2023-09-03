@@ -1822,7 +1822,15 @@ textarea, input{
     .project.section{
         padding: 0 10px;      
     }
-    
+
+    .achievements .section-title, .project .section-title {
+        padding-left: 30px;
+    }
+
+    .project .portfolio-heading h2{
+        padding-left: 15px;
+    }
+
     .contact-title{
         font-size: 23px;
     }

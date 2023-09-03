@@ -18,7 +18,7 @@
 
 .style-switcher .s-icon{
     position: absolute;
-    height: 33px;
+    height: 31px;
     width: 33px;
     text-align: center;   
     font-size: 20px;
@@ -38,11 +38,11 @@
 }
 
 .style-switcher .style-switcher-toggler{
-    top: 0px;
+    top: -5px;
 }
 
 .style-switcher .day-night{
-    top:-43px;
+    top:-45px;
 }
 
 .style-switcher h4{
