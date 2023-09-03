@@ -460,7 +460,7 @@ h3.my-profession{
     width: 80px;
     border-bottom: 10px solid var(--skin-color);
     border-right: 10px solid var(--skin-color);
-    right: 60px;
+    right: 50px;
     bottom: 30px;
     animation: slideBottom 1s ease forwards;
 }
@@ -472,7 +472,7 @@ h3.my-profession{
     width: 80px;
     border-top: 10px solid var(--skin-color);
     border-left: 10px solid var(--skin-color);
-    left: 60px;
+    left: 50px;
     top: -30px;
     animation: slideTop 1s ease forwards;
 }
@@ -480,7 +480,7 @@ h3.my-profession{
 .home .home-img img{
     margin: auto;
     border-radius: 10px;
-    height: 390px;
+    height: 420px;
     animation: fadeIn 2s;
 }
 
