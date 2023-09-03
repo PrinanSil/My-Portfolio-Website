@@ -129,7 +129,7 @@ ul{
 }
 
 .padd-20{
-    padding-top: 20px;
+    padding-top: 25px;
 }
 
 .row{
@@ -282,8 +282,8 @@ ul{
 }
 
 .aside .nav-toggler{
-    height: 40px;
-    width: 45px;
+    height: 30px;
+    width: 30px;
     border: 1px solid var(--bg-black-50);
     cursor: pointer;
     position: fixed;
@@ -299,7 +299,7 @@ ul{
 
 .aside .nav-toggler span{
     height: 2px;
-    width: 18px;
+    width: 15px;
     background: var(--skin-color);
     display: inline-block;
     position: relative;
@@ -312,7 +312,7 @@ ul{
 .aside .nav-toggler span::before{
     content: "";
     height: 2px;
-    width: 18px;
+    width: 15px;
     background: var(--skin-color);
     position: absolute;
     top: -6px;
@@ -328,7 +328,7 @@ ul{
 .aside .nav-toggler span::after{
     content: "";
     height: 2px;
-    width: 18px;
+    width: 15px;
     background: var(--skin-color);
     position: absolute;
     top: 6px;
@@ -1815,6 +1815,10 @@ textarea, input{
 }
 
 @media (max-width:450px){  
+    .contact-title{
+        font-size: 23px;
+    }
+
     .project .portfolio-item{
         margin-left: 15%;      
     }
@@ -1842,6 +1846,11 @@ textarea, input{
     .radial-bars .radial-bar{     
         width: 33.33%; 
     }
+
+    .contact .contact-info-item{
+        flex:0 0 100%;
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 420px){  
@@ -1855,6 +1864,36 @@ textarea, input{
 }
 
 @media (max-width: 400px){  
+    h3.hello{
+        font-size: 45px;
+    }
+
+    h3.name{
+        font-size: 35px;
+    }
+
+    h3.my-profession{
+        font-size: 28px;
+    }
+    
+    .bio .about-container .personal-info .buttons .btn{
+        height: 40px;       
+        font-size: 15px;
+    }
+   
+    .bio .about-container .personal-info .buttons{
+        margin-left: -10px; 
+        margin-right: -10px;           
+    }
+
+    .project .portfolio-item-inner .portfolio-buttons .btn.know-more{
+        height: 35px;
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 20px;
+        padding: 7px 25px;
+    }
+
     .project .portfolio-item{
        margin-left: 15%;      
     }
