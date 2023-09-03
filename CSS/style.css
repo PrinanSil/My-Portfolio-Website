@@ -1797,7 +1797,7 @@ textarea, input{
         margin-left: 15%;      
     }
  
-     .achievements .achievement-item{        
+    .achievements .achievement-item{        
          margin-left: 15%;
     }    
 
@@ -1814,7 +1814,15 @@ textarea, input{
     }
 }
 
-@media (max-width:450px){  
+@media (max-width:450px){ 
+    .achievements.section{
+        padding: 0 10px;
+    } 
+
+    .project.section{
+        padding: 0 10px;      
+    }
+    
     .contact-title{
         font-size: 23px;
     }
@@ -1866,6 +1874,10 @@ textarea, input{
 @media (max-width: 400px){  
     h3.hello{
         font-size: 45px;
+    }
+
+    .achievements .section-title h2{
+        font-size: 47px;
     }
 
     h3.name{
