@@ -1,6 +1,6 @@
 # My-Portfolio-Website
 
-![Portfolio Website Screenshot](screenshot.png)
+![Portfolio Website Screenshot](/IMG/Homepage.png)
 
 This is my personal portfolio website showcasing my projects, skills, and contact information. It was built using HTML, CSS, and JavaScript. Special thanks to Email.js and Typed.js for enhancing the functionality.
 
