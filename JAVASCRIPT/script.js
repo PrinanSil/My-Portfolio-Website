@@ -1,43 +1,147 @@
-"use strict";
-let words = document.querySelectorAll(".rotate");
-words.forEach((word) => {
-  let letters=word.textContent.split("");
-  word.textContent="";
-  letters.forEach((letter) => {
-    let span= document.createElement("span");
-    span.textContent=letter;
-    span.className="letter";
-    word.append(span);  
-  });
+/*=========================== typing animation ========================== */
+const typed = new Typed(".typing",{
+    strings: [" Data Engineer", " Backend Engineer", " Data Analyst", " Data Scientist", " ML Engineer", " ETL Developer", " SQL Specialist"],
+    typeSpeed: 100,
+    BackSpeed: 80,
+    loop:true
 });
 
-let currentWordIndex=0;
-let maxWordIndex= words.length-1;
-words[currentWordIndex].style.opacity = "1";
-let rotateText = () => {
-  let currentWord=words[currentWordIndex];
-  let nextWord= 
-   currentWordIndex===maxWordIndex ? words[0]:words[currentWordIndex+1];
-   //rotate out letters of current word
-   Array.from(currentWord.children).forEach((letter,i) => {
-    setTimeout(() => {
-      letter.className= "letter out";
-    }, i*80);
-  });
+/*============================= Aside ============================= */
+const nav = document.querySelector(".nav"),
+    navList = nav.querySelectorAll("li"),
+    totalNavList = navList.length,
+    allSection = document.querySelectorAll(".section"),
+    totalSection = allSection.length;    
+    const activeSectionIndex = localStorage.getItem("activeSectionIndex");
+    const backSectionIndex = localStorage.getItem("backSectionIndex");
+    const activeElements = document.querySelectorAll(".active");
+    const count = activeElements.length;
+    if (activeSectionIndex !== null && backSectionIndex !== null) {
+        if(count>1){
+            navList[0].querySelector("a").classList.remove("active");
+            showSection(navList[activeSectionIndex].querySelector("a"));
+            navList[activeSectionIndex].querySelector("a").classList.add("active");
+            addBackSection(backSectionIndex);
+        }        
+    } 
+    else {
+        // If no sections are stored, show the default section
+        showSection(navList[0].querySelector("a"));
+        navList[0].querySelector("a").classList.add("active");
+    }
+        
+    for(let i=0; i<totalNavList; i++){
+        const a = navList[i].querySelector("a");
+            a.addEventListener("click", function(){
+                const sectionIndex = i;
+            // Store the selected section in localStorage
+            localStorage.setItem("activeSectionIndex", sectionIndex);
+            
+            removeBackSection();                     
+            for(let j=0; j<totalNavList; j++){  
+                if(navList[j].querySelector("a").classList.contains("active")){
+                    addBackSection(j);                    
+                }
+                navList[j].querySelector("a").classList.remove("active");
+            }
+            this.classList.add("active");
+            showSection(this);
+            if (window.innerWidth < 1300) {
+                asideSectionTogglerBtn();
+            }            
+        })
+    }
 
-    //reveal and rotate in letters of next word
-    nextWord.style.opacity = "1";
-    Array.from(nextWord.children).forEach((letter , i) => {
-      letter.className="letter behind";
-      setTimeout(() => {
-        letter.className= "letter in";
-      }, 340 + i*80);
-  });
-  currentWordIndex =
-   currentWordIndex=== maxWordIndex? 0: currentWordIndex+1;
-};
+function removeBackSection(){
+    for(let i=0; i<totalSection; i++){
+        allSection[i].classList.remove("back-section");
+    }
+}
 
-rotateText();
-setInterval(rotateText, 4000);
+function addBackSection(num){
+    allSection[num].classList.add("back-section");
+    let bsectionIndex=num;
+    localStorage.setItem("backSectionIndex", bsectionIndex);
+}
+
+function showSection(element){ 
+    for(let i=0; i<totalSection; i++){
+        allSection[i].classList.remove("active");
+    }
+    const target = element.getAttribute("href").split("#")[1];
+    document.querySelector("#" + target).classList.add("active");
+}
+
+function updateNav(element) {
+    for (let i = 0; i < totalNavList; i++) {
+        navList[i].querySelector("a").classList.remove("active");
+        const target = element.getAttribute("href").split("#")[1];
+        if (target === navList[i].querySelector("a").getAttribute("href").split("#")[1]) {
+            navList[i].querySelector("a").classList.add("active");
+            const sectionIndex = i;
+            // Store the selected section in localStorage
+            localStorage.setItem("activeSectionIndex", sectionIndex);
+        }
+    }
+    
+}
+
+document.querySelector(".hire-me").addEventListener("click", function() {
+    const sectionIndex = this.getAttribute("data-section-index");
+    let section=parseInt(sectionIndex);  
+    console.log(section);
+    console.log(typeof(section));
+    showSection(this);
+    updateNav(this);
+    removeBackSection();
+    addBackSection(section);
+});
+
+document.querySelector(".about-me").addEventListener("click", function() {
+    const sectionIndex = this.getAttribute("data-section-index");
+    let section=parseInt(sectionIndex);    
+    console.log(section);
+    console.log(typeof(section));
+    showSection(this);
+    updateNav(this);
+    removeBackSection();
+    addBackSection(section);
+});
 
 
+const navTogglerBtn = document.querySelector(".nav-toggler"),
+    aside = document.querySelector(".aside");
+    navTogglerBtn.addEventListener("click", () => {
+        asideSectionTogglerBtn();
+    });
+    function asideSectionTogglerBtn(){
+        aside.classList.toggle("open");
+        navTogglerBtn.classList.toggle("open");
+        for (let i = 0; i < totalSection; i++) {
+            allSection[i].classList.toggle("open");
+        }
+    }
+
+    function openModal(id) {
+        document.getElementById('modalOverlay').classList.add('active');
+        document.getElementById('modal-' + id).classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal() {
+        document
+            .querySelectorAll('.project-modal.active')
+            .forEach(modal => modal.classList.remove('active'));
+    
+        document
+            .getElementById('modalOverlay')
+            .classList.remove('active');
+    
+        document.body.style.overflow = '';
+    }
+    
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
