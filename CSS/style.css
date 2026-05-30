@@ -840,26 +840,27 @@ h3.my-profession{
 .path-19{animation:animate-path19 1s 1s linear forwards;}
 .path-20{animation:animate-path20 1s 1s linear forwards;}
 
-@keyframes animate-path1{100%{stroke-dashoffset:60;}}
-@keyframes animate-path2{100%{stroke-dashoffset:100;}}
-@keyframes animate-path3{100%{stroke-dashoffset:100;}}
-@keyframes animate-path4{100%{stroke-dashoffset:50;}}
-@keyframes animate-path5{100%{stroke-dashoffset:75;}}
-@keyframes animate-path6{100%{stroke-dashoffset:100;}}
-@keyframes animate-path7{100%{stroke-dashoffset:125;}}
-@keyframes animate-path8{100%{stroke-dashoffset:125;}}
-@keyframes animate-path9{100%{stroke-dashoffset:250;}}
-@keyframes animate-path10{100%{stroke-dashoffset:250;}}
-@keyframes animate-path11{100%{stroke-dashoffset:250;}}
-@keyframes animate-path12{100%{stroke-dashoffset:150;}}
-@keyframes animate-path13{100%{stroke-dashoffset:150;}}
-@keyframes animate-path14{100%{stroke-dashoffset:75;}}
-@keyframes animate-path15{100%{stroke-dashoffset:150;}}
-@keyframes animate-path16{100%{stroke-dashoffset:250;}}
-@keyframes animate-path17{100%{stroke-dashoffset:250;}}
-@keyframes animate-path18{100%{stroke-dashoffset:300;}}
-@keyframes animate-path19{100%{stroke-dashoffset:250;}}
-@keyframes animate-path20{100%{stroke-dashoffset:200;}}
+/* Correct formula: stroke-dashoffset = 502 * (1 - pct/100) */
+@keyframes animate-path1 {100%{stroke-dashoffset:50;}}   /* 90% Problem Solving  */
+@keyframes animate-path2 {100%{stroke-dashoffset:75;}}   /* 85% Communication    */
+@keyframes animate-path3 {100%{stroke-dashoffset:75;}}   /* 85% Time Management  */
+@keyframes animate-path4 {100%{stroke-dashoffset:50;}}   /* 90% Teamwork         */
+@keyframes animate-path5 {100%{stroke-dashoffset:75;}}   /* 85% Leadership       */
+@keyframes animate-path6 {100%{stroke-dashoffset:75;}}   /* 85% Pandas           */
+@keyframes animate-path7 {100%{stroke-dashoffset:75;}}   /* 85% NumPy            */
+@keyframes animate-path8 {100%{stroke-dashoffset:100;}}  /* 80% TensorFlow       */
+@keyframes animate-path9 {100%{stroke-dashoffset:100;}}  /* 80% Sklearn          */
+@keyframes animate-path10{100%{stroke-dashoffset:126;}}  /* 75% Keras            */
+@keyframes animate-path11{100%{stroke-dashoffset:100;}}  /* 80% Matplotlib       */
+@keyframes animate-path12{100%{stroke-dashoffset:126;}}  /* 75% PySpark          */
+@keyframes animate-path13{100%{stroke-dashoffset:151;}}  /* 70% JPA/Hibernate    */
+@keyframes animate-path14{100%{stroke-dashoffset:50;}}   /* 90% VS Code          */
+@keyframes animate-path15{100%{stroke-dashoffset:75;}}   /* 85% GitHub           */
+@keyframes animate-path16{100%{stroke-dashoffset:100;}}  /* 80% Git/Jenkins      */
+@keyframes animate-path17{100%{stroke-dashoffset:126;}}  /* 75% Tableau/Power BI */
+@keyframes animate-path18{100%{stroke-dashoffset:151;}}  /* 70% Databricks/Airflow */
+@keyframes animate-path19{100%{stroke-dashoffset:100;}}  /* 80% Data Modeling    */
+@keyframes animate-path20{100%{stroke-dashoffset:126;}}  /* 75% System Design    */
 
 .radial-bar .percentage{
     position: absolute;
@@ -892,82 +893,126 @@ h3.my-profession{
 
 /* ===================== ACHIEVEMENTS ===================== */
 .achievements .container{ padding-bottom: 40px; }
-
+ 
 .achievements .achievement-item{
     flex: 0 0 33.33%;
     max-width: 33.33%;
     margin-bottom: 30px;
 }
-
+ 
 .achievements .achievement-item-inner{
     border: 6px solid var(--bg-black-100);
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
-    height: 300px;
-    transition: transform 0.3s ease;
+    height: 320px;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.achievements .achievement-item-inner:hover{ transform: scale(1.05); }
-
+ 
+.achievements .achievement-item-inner:hover{
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.35), 0 0 18px rgba(44,80,179,0.22);
+}
+ 
+.achievements .achievement-item-inner .achievement-img{
+    flex: 0 0 auto;
+    overflow: hidden;
+}
+ 
 .achievements .achievement-item-inner .achievement-img img{
     width: 100%;
     display: block;
     height: 180px;
+    min-height: 180px;
     object-fit: cover;
+    object-position: center top;
+    transition: transform 0.45s ease;
 }
-
+ 
+.achievements .achievement-item-inner:hover .achievement-img img{
+    transform: scale(1.07);
+}
+ 
 .achievements .achievement-item-inner .achievement-text{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin-top: 20px;
-    font-size: clamp(14px, 1.5vw, 20px);
+    font-size: clamp(13px, 1.4vw, 16px);
     color: var(--text-black-900);
-    padding: 0 8px;
+    padding: 10px 8px 0;
+    transition: color 0.3s ease;
 }
-
+ 
+.achievements .achievement-item-inner:hover .achievement-text{
+    color: var(--skin-color);
+}
+ 
+.achievements .achievement-buttons{
+    flex: 0 0 auto;
+    text-align: center;
+    padding-bottom: 15px;
+}
+ 
+.achievements .achievement-buttons .btn.know-more{
+    margin-top: 0;
+}
+ 
 /* ===================== PROJECT ===================== */
 .project .container{ padding-bottom: 40px; }
-
+ 
 .project .portfolio-heading{ flex:0 0 100%; max-width:100%; }
-
+ 
 .project .portfolio-heading h2{
     color: var(--text-black-900);
     font-weight: 600;
     margin-bottom: 30px;
 }
-
+ 
 .project .portfolio-item{
     flex: 0 0 33.33%;
     max-width: 33.33%;
     margin-bottom: 30px;
 }
-
+ 
 .project .portfolio-item-inner{
     border: 6px solid var(--bg-black-100);
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
-    height: 300px;
-    transition: transform 0.3s ease;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
 }
-
+ 
 .project .portfolio-item-inner:hover{ transform: scale(1.05); }
-
+ 
 .project .portfolio-item-inner .portfolio-img img{
     width: 100%;
-    display: block;
     height: 180px;
     object-fit: cover;
 }
-
-.project .portfolio-item-inner .portfolio-buttons{ text-align: center; margin-top: -10px; }
-
+ 
 .project .portfolio-item-inner .portfolio-text{
+    flex: 1;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     text-align: center;
-    margin-top: 10px;
-    font-size: clamp(13px, 1.4vw, 16px);
-    color: var(--text-black-900);
-    padding: 0 6px;
+    padding: 8px;
+    line-height: 1.3;
+}
+
+.project .portfolio-item-inner .portfolio-buttons{
+    margin-top: auto;
+    padding-bottom: 15px;
+    text-align: center;
 }
 
 /* ===================== CONTACT ===================== */
@@ -1111,6 +1156,12 @@ textarea, input{ font-family: "Times New Roman", Times, serif; font-size: 20px; 
         margin-left: 0;
     }
 
+    .achievements .achievement-item{
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-left: 0;
+    }
+
     .contact .contact-info-item{
         flex: 0 0 100%;
         max-width: 100%;
@@ -1171,7 +1222,14 @@ textarea, input{ font-family: "Times New Roman", Times, serif; font-size: 20px; 
 
 .project .portfolio-item-inner .portfolio-text {
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: clamp(13px, 1.4vw, 16px);
+    color: var(--text-black-900);
     padding: 10px 8px 0;
+    transition: color 0.3s ease;
 }
 
 .project .portfolio-item-inner .portfolio-buttons {
@@ -1263,12 +1321,19 @@ textarea, input{ font-family: "Times New Roman", Times, serif; font-size: 20px; 
 .modal-embed {
     width: 100%;
     height: 380px;
+    overflow: hidden;
+    position: relative;
 }
 
 .modal-embed iframe {
-    width: 100%;
-    height: 100%;
+    width: 160%;
+    height: 160%;
     border: none;
+    transform: scale(0.625);
+    transform-origin: top left;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .modal-tags {
@@ -1291,6 +1356,8 @@ textarea, input{ font-family: "Times New Roman", Times, serif; font-size: 20px; 
 
 .modal-body {
     padding: 20px 28px 28px;
+    background: var(--bg-black-100);
+    color: var(--text-black-700);
 }
 
 .modal-award {
@@ -1310,6 +1377,16 @@ textarea, input{ font-family: "Times New Roman", Times, serif; font-size: 20px; 
 .modal-body ul li {
     padding: 6px 0 6px 22px;
     position: relative;
+    color: var(--text-black-700);
+}
+
+.modal-award {
+    background: rgba(255,215,0,.1);
+    border-left: 3px solid gold;
+    padding: 10px 14px;
+    border-radius: 6px;
+    color: gold;
+    margin-bottom: 16px;
 }
 
 .modal-body ul li::before {
@@ -1332,4 +1409,96 @@ textarea, input{ font-family: "Times New Roman", Times, serif; font-size: 20px; 
     .modal-embed {
         height: 220px;
     }
+}
+/* ===================== ELEGANCE & STYLE ENHANCEMENTS ===================== */
+
+/* Thin skin-color scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-black-900); }
+::-webkit-scrollbar-thumb { background: var(--skin-color); border-radius: 10px; }
+
+/* Aside nav link slide-indent on hover */
+.aside .nav li a {
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    border-radius: 6px;
+}
+.aside .nav li a:hover { color: var(--skin-color); padding-left: 24px; }
+.aside .logo a:hover { text-shadow: 0 0 18px var(--skin-color); transition: text-shadow 0.3s; }
+
+/* Button shimmer overlay */
+.btn { transition: transform 0.25s ease, box-shadow 0.25s ease, color 0.25s ease; letter-spacing: 0.5px; position: relative; overflow: hidden; }
+.btn::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.08); opacity: 0; transition: opacity 0.25s; border-radius: 40px; }
+.btn:hover::after { opacity: 1; }
+
+/* Section title underline grow */
+.section-title h2::before { transition: width 0.4s ease; }
+.section-title:hover h2::before { width: 180px; }
+
+/* Timeline box left-border glow on hover */
+.bio .about-container .timeline { transition: box-shadow 0.3s ease; }
+.bio .about-container .timeline:hover { box-shadow: -3px 0 14px var(--skin-color), 0 0 24px rgba(0,0,0,0.2); }
+
+/* Portfolio card — image zoom + lift glow */
+.project .portfolio-item-inner { position: relative; }
+.project .portfolio-item-inner .portfolio-img { overflow: hidden; }
+.project .portfolio-item-inner .portfolio-img img { transition: transform 0.45s ease; }
+.project .portfolio-item-inner:hover .portfolio-img img { transform: scale(1.07); }
+.project .portfolio-item-inner:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 12px 35px rgba(0,0,0,0.35), 0 0 18px rgba(44,80,179,0.22); }
+.project .portfolio-item-inner:hover .portfolio-text { color: var(--skin-color); }
+
+/* Achievement cards same treatment */
+.achievements .achievement-item-inner { transition: transform 0.35s ease, box-shadow 0.35s ease; overflow: hidden; }
+.achievements .achievement-item-inner .achievement-img { overflow: hidden; }
+.achievements .achievement-item-inner .achievement-img img { transition: transform 0.45s ease; }
+.achievements .achievement-item-inner:hover .achievement-img img { transform: scale(1.07); }
+.achievements .achievement-item-inner:hover { transform: translateY(-5px) scale(1.03); box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 16px rgba(44,80,179,0.2); }
+
+/* Home social icons lift on hover */
+.home .home-sci a { transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; }
+.home .home-sci a:hover { transform: translateY(-4px); }
+
+/* Smoother section slide-in */
+@keyframes slideSection { 0%{ transform: translateX(60px); opacity: 0; } 100%{ transform: translateX(0); opacity: 1; } }
+
+/* Modal pop animation */
+@keyframes modalIn { from { opacity: 0; transform: translate(-50%, -46%) scale(0.95); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+
+/* Modal close button spin on hover */
+.modal-close { transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease; }
+.modal-close:hover { transform: rotate(90deg) scale(1.15); }
+
+/* Skill bars nudge on hover */
+.skill-bars .bar { transition: transform 0.2s ease; }
+.skill-bars .bar:hover { transform: translateX(4px); }
+
+/* Contact form focus ring */
+.contact .contact-form .form-item .form-control { transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+.contact .contact-form .form-item .form-control:focus { border-color: var(--skin-color); box-shadow: 0 0 0 3px rgba(44,80,179,0.15); outline: none; }
+
+/* Contact icon lift */
+.contact .contact-info-item .icon { transition: transform 0.3s ease; }
+.contact .contact-info-item .icon:hover { transform: translateY(-4px) scale(1.18) !important; }
+
+/* Nav toggler glow when open */
+.aside .nav-toggler.open { box-shadow: 0 0 12px var(--skin-color); }
+
+/* Modal tag hover */
+.modal-tags span { transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; cursor: default; }
+.modal-tags span:hover { background: var(--skin-color); color: var(--bg-black-900); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.25); }
+
+/* Style switcher refinement */
+.style-switcher { border-radius: 12px; box-shadow: -4px 0 20px rgba(0,0,0,0.35); }
+.style-switcher .colors span { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.style-switcher .colors span:hover { transform: scale(1.15); }
+
+/* Mobile modal */
+@media (max-width:600px) {
+    .modal-body { color: var(--text-black-700); }
+}
+
+.btn.know-more::before {
+    content: "\f05a";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 8px;
 }
