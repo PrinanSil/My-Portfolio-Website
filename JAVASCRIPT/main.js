@@ -1,6 +1,6 @@
 /*=========================== typing animation ========================== */
 const typed = new Typed(".typing",{
-    strings:[" Web Designer"," Frontend Developer"," Data Analyst"," Cloud Enthusiast", " Flutter Developer"],
+    strings: [" Data Engineer", " Backend Engineer", " Data Analyst", " Data Scientist", " ML Engineer", " ETL Developer", " SQL Specialist"],
     typeSpeed: 100,
     BackSpeed: 80,
     loop:true
@@ -121,3 +121,27 @@ const navTogglerBtn = document.querySelector(".nav-toggler"),
             allSection[i].classList.toggle("open");
         }
     }
+
+    function openModal(id) {
+        document.getElementById('modalOverlay').classList.add('active');
+        document.getElementById('modal-' + id).classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal() {
+        document
+            .querySelectorAll('.project-modal.active')
+            .forEach(modal => modal.classList.remove('active'));
+    
+        document
+            .getElementById('modalOverlay')
+            .classList.remove('active');
+    
+        document.body.style.overflow = '';
+    }
+    
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
