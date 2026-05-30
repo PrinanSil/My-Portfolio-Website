@@ -39,5 +39,3 @@ let rotateText = () => {
 
 rotateText();
 setInterval(rotateText, 4000);
-
-
