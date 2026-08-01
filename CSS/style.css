@@ -899,7 +899,13 @@ h3.my-profession{
     max-width: 33.33%;
     margin-bottom: 30px;
 }
- 
+
+.achievements .portfolio-heading h2{
+    color: var(--text-black-900);
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
 .achievements .achievement-item-inner{
     border: 6px solid var(--bg-black-100);
     border-radius: 10px;
@@ -1501,4 +1507,55 @@ textarea, input{ font-family: "Times New Roman", Times, serif; font-size: 20px; 
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     margin-right: 8px;
+}
+/* ===================== CERTIFICATIONS ===================== */
+.certifications .container { padding-bottom: 40px; }
+
+.certifications .achievement-item {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    margin-bottom: 30px;
+}
+
+/* Smooth section transition enhancement */
+.section {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.section:not(.active) {
+    opacity: 0;
+    pointer-events: none;
+}
+.section.active {
+    opacity: 1;
+    animation: sectionFadeIn 0.45s ease forwards;
+}
+@keyframes sectionFadeIn {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Certificate modal View button */
+.modal-links {
+    margin-top: 18px;
+}
+.modal-links .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    padding: 10px 22px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .certifications .achievement-item {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+@media (max-width: 600px) {
+    .certifications .achievement-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }
